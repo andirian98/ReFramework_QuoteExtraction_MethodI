@@ -1,0 +1,13 @@
+﻿{
+  "Id": "FShm-CGD-0CJzN75GpahSQ",
+  "Reference": "Iduy_zbUgUmPUf17L8aBFw/FShm-CGD-0CJzN75GpahSQ",
+  "ParentRef": "Iduy_zbUgUmPUf17L8aBFw/7iqc53hPMkeeV9XrxJyLOQ",
+  "Name": "$1,500.00",
+  "Type": "Element",
+  "TaxonomyType": "None",
+  "Created": "2022-11-10T08:58:37.6024028Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=22.10.2.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-11-10T08:58:37.6024028Z"
+}
