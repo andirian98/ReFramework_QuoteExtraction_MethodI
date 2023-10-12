@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="2-4rcf2_OU64N7-2fMoF1g" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="537, 504, 64, 20" DesignTimeScaleFactor="1" FriendlyName="'$1,500.00'" FullSelectorArgument="&lt;uia cls='EXCEL7' name='PO Format.xlsx' /&gt;&lt;uia name='Grid' /&gt;&lt;uia name='G12' tableCol='6' tableRow='11' /&gt;" FuzzySelectorArgument="&lt;uia cls='EXCEL7' name='PO Format.xlsx' /&gt;&lt;uia name='Grid' /&gt;&lt;uia name='G12' role='' automationid='' check:text='$1,500.00' /&gt;" Guid="72bda1fa-de37-4785-a906-38ab8882947a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEQAAAAYCAYAAABDX1s+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADdSURBVFhH7ZhBDoQgDEU5FwfiPD0NJ2HHYTqt+B1gYjLdlr6kinzTxBftwsRCStfpSPTZ5+eX9dg4vVprV8UbcgsBISSErISQjRCyEUI2jEI6U85MfVzVkrjUsfaRmYVULqnIUVkb+8gsQmp5bl5LGpKD7JaCPfAuRFEpmcSr0Ikz1oqHTDAJ6ZQ54YObGwseMuVvITp8cPNS0pAcZJCCPfAqRJknsprO0zTykCkGITqRv83mxj6ygVEIpvHa2Ec2MAg5gxCyEUI2QsjGjxBsnF7xT/UGQkAIWYQwfwAwiZ6HFALy3AAAAABJRU5ErkJggg==" ScopeSelectorArgument="&lt;wnd app='excel.exe' cls='XLMAIN' title='PO Format.xlsx - Excel (Product Activation Failed)' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="2361a31a463add47b3eb733a27716235.png" xmlns="">0yhWCC8fGFEGJKYrKM4cm2g</imageRef>
+    </TargetAnchorable>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

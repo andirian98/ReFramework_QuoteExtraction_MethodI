@@ -1,0 +1,13 @@
+﻿{
+  "Id": "lG5jPcJMC0OiQG65ewt65w",
+  "Reference": "Iduy_zbUgUmPUf17L8aBFw/lG5jPcJMC0OiQG65ewt65w",
+  "ParentRef": "Iduy_zbUgUmPUf17L8aBFw/7iqc53hPMkeeV9XrxJyLOQ",
+  "Name": "Quote. NO.",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Created": "2022-11-10T08:58:37.6685934Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=22.10.2.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2022-11-10T08:58:37.6685934Z"
+}

@@ -1,0 +1,409 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Experiment1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_file_name" Type="InArgument(x:String)" />
+    <x:Property Name="in_output_file" Type="InArgument(x:String)" />
+    <x:Property Name="in_pdf_output" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1240,3241</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Experiment1_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="41">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.PDF.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.DocumentUnderstanding.Digitizer.Utils</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.OCR.Activities</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.Excel.Model</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="104">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentUnderstanding.Digitizer</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Core</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Experiment1" sap:VirtualizedContainerService.HintSize="493,3176" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="outputText" />
+      <Variable x:TypeArguments="x:String" Name="outputText2" />
+      <Variable x:TypeArguments="x:String" Name="quote_num" />
+      <Variable x:TypeArguments="x:String" Name="end_user_name" />
+      <Variable x:TypeArguments="x:String" Name="product_desc" />
+      <Variable x:TypeArguments="x:String" Name="unit_price" />
+      <Variable x:TypeArguments="x:String" Name="discount" />
+      <Variable x:TypeArguments="x:String" Name="total_amt" />
+      <Variable x:TypeArguments="x:Decimal" Name="current_price" />
+      <Variable x:TypeArguments="x:String" Name="dateCurrent" />
+      <Variable x:TypeArguments="x:String" Name="currency" />
+      <Variable x:TypeArguments="x:String" Name="quantity" />
+      <Variable x:TypeArguments="x:String" Name="unit_price_full" />
+      <Variable x:TypeArguments="x:Int32" Name="ringgit" />
+      <Variable x:TypeArguments="x:Int32" Name="coin" />
+      <Variable x:TypeArguments="x:String" Name="ringgit_text" />
+      <Variable x:TypeArguments="x:String" Name="coin_text" />
+      <Variable x:TypeArguments="x:String" Name="amount_in_words" />
+      <Variable x:TypeArguments="x:String" Name="amt" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="[in_file_name]" sap:VirtualizedContainerService.HintSize="451,69" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[outputText]" />
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim list_string As New List(Of String)&#xA;Dim regex As Regex = New System.Text.RegularExpressions.Regex(&quot;(((?&lt;=QUOTE NUMBER )+(.|\n)*(?=Quote Date))|((?&lt;=End-user ).*)|(UiPath)|(Attended Robot)|(Unattended Robot)|(Node Locked)|(\b\d{1,18}\.\d{1,2}\b\s\%)|(\$\b\d{1,18}\,\d{1,18}\.\d{1,2}\b)|(USD)|((?&lt;=Attended Robot ).*(?= per year)))&quot;)&#xA;Dim m As System.Text.RegularExpressions.Match&#xA;&#xA;For Each m In regex.Matches(output)&#xA;            list_string.Add(m.Value)&#xA;&#x9;&#x9;&#x9;Next&#xA;'To get distinct values from list_string and assign into distinctValues&#x9;&#x9;&#x9;&#xA;Dim distinctValues = From s In list_string&#xA;                             Select s Distinct&#xA;&#x9;&#xA;quote_num = distinctValues(0).Replace(&quot; &quot;,&quot;&quot;).ToString&#xA;end_user_name = distinctValues(1).ToString&#xA;currency = distinctValues(2).ToString&#xA;quantity = distinctValues(5).ToString&#xA;product_desc = distinctValues(3).ToString + &quot;-&quot; + distinctValues(4).ToString + &quot;-&quot; + distinctValues(6).ToString&#xA;unit_price = distinctValues(7).Replace(&quot;$&quot;,&quot;&quot;).ToString&#xA;unit_price_full = distinctValues(7).ToString&#xA;discount = distinctValues(8).Replace(&quot;%&quot;,&quot;&quot;).ToString&#xA;total_amt = distinctValues(9).ToString&#xA;&#xA;current_price = CDec(unit_price) * (CDec(discount)/100)&#xA;date3 = Date.Now.ToString" DisplayName="Invoke Code Get Value From PDF" sap:VirtualizedContainerService.HintSize="451,174" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+      <ui:InvokeCode.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="output">[outputText]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="quote_num">[quote_num]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="end_user_name">[end_user_name]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="product_desc">[product_desc]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="unit_price">[unit_price_full]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="discount">[discount]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="total_amt">[total_amt]</OutArgument>
+        <OutArgument x:TypeArguments="x:Decimal" x:Key="current_price">[current_price]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="date3">[dateCurrent]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="currency">[currency]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="quantity">[quantity]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="unit_price_full">[unit_price_full]</OutArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="451,141" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Int32">[ringgit]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Int32">[CINT(unit_price_full.Replace("$","").Split("."c)(0).ToString)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Int32">[coin]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Int32">[CINT(unit_price_full.Replace("$","").Split("."c)(1).ToString)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="451,2380" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
+      <ui:IfElseIf.ConditionBlocks>
+        <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+          <ui:IfElseIfBlock BlockType="If" Condition="[Ringgit &gt; 0 and coin &gt; 0]">
+            <ui:IfElseIfBlock.Then>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,750" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="NumberToWords.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="358,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="NumberToWords.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:Int32" x:Key="Nr">[ringgit]</InArgument>
+                    <InOutArgument x:TypeArguments="x:String" x:Key="Word">[ringgit_text]</InOutArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="NumberToWords for Coin" sap:VirtualizedContainerService.HintSize="358,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="NumberToWords.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:Int32" x:Key="Nr">[coin]</InArgument>
+                    <InOutArgument x:TypeArguments="x:String" x:Key="Word">[coin_text]</InOutArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+                <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim list_string As New List(Of String)&#xA;TextBox1 = Trim(TextBox1)&#xA;TextBox2 = Trim(TextBox2)&#xA;&#xA;'Ringgit modification&#xA;If Len(TextBox1) &gt; 1 Then&#xA;&#x9;Dim words As String() = TextBox1.Split(&quot; &quot;c)&#xA; &#x9;For Each str As String In words&#xA;     &#x9;list_string.Add(str.Substring(0, 1).ToUpper() + str.Substring(1))&#xA;&#x9;&#x9;'Console.WriteLine(str)&#xA;&#x9; Next&#xA;&#x9; TextBox1 = String.Join(&quot; &quot;, list_string)&#xA; Else If Len(TextBox1) = 1 Then&#xA;     TextBox1 = TextBox1.ToUpper()&#xA; End If&#xA; &#xA; 'Cent modification&#xA; If Len(TextBox2) &gt; 1 Then&#xA;&#x9;Dim words As String() = TextBox2.Split(&quot; &quot;c)&#xA; &#x9;For Each str As String In words&#xA;     &#x9;list_string.Add(str.Substring(0, 1).ToUpper() + str.Substring(1))&#xA;&#x9;&#x9;'Console.WriteLine(str)&#xA;&#x9; Next&#xA;&#x9; TextBox2 = String.Join(&quot; &quot;, list_string)&#xA; Else If Len(TextBox2) = 1 Then&#xA;     TextBox2 = TextBox2.ToUpper()&#xA; End If&#xA; &#xA; 'Check the currency&#xA; If unit_price_full.Substring(0,1).Equals(&quot;$&quot;) Then&#xA; &#x9;&#x9;full_text_box = TextBox1 + &quot; &quot; + &quot;U.S. Dollar&quot; + TextBox2 + &quot; &quot; + &quot;Cent&quot;&#xA;End If" DisplayName="Invoke Code Money Text Modification" sap:VirtualizedContainerService.HintSize="358,174" sap2010:WorkflowViewState.IdRef="InvokeCode_7">
+                  <ui:InvokeCode.Arguments>
+                    <InArgument x:TypeArguments="x:String" x:Key="TextBox1">[ringgit_text]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="unit_price_full">[unit_price_full]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="TextBox2">[coin_text]</InArgument>
+                    <OutArgument x:TypeArguments="x:String" x:Key="full_text_box">[amount_in_words]</OutArgument>
+                  </ui:InvokeCode.Arguments>
+                </ui:InvokeCode>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AssignValueExcel.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="358,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="AssignValueExcel.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_end_user_name">[end_user_name]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_quote_num">[quote_num]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_dateCurrent">[dateCurrent]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_product_desc">[product_desc]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_unit_price">[unit_price_full]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_current_price">[current_price.ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_total_amt">[total_amt]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_quantity">[quantity]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_currency">[currency]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_amount_in_words">[amount_in_words]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_output_file">[in_output_file]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_pdf_output">[in_pdf_output]</InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+              </Sequence>
+            </ui:IfElseIfBlock.Then>
+          </ui:IfElseIfBlock>
+          <ui:IfElseIfBlock BlockType="ElseIf" Condition="[ringgit &gt; 0 and coin = 0]">
+            <ui:IfElseIfBlock.Then>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,588" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="NumberToWords for Ringgit" sap:VirtualizedContainerService.HintSize="358,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="NumberToWords.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:Int32" x:Key="Nr">[ringgit]</InArgument>
+                    <InOutArgument x:TypeArguments="x:String" x:Key="Word">[ringgit_text]</InOutArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+                <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim list_string As New List(Of String)&#xA;TextBox1 = Trim(TextBox1)&#xA;Dim words As String() = TextBox1.Split(&quot; &quot;c)&#xA;If Len(TextBox1) &gt; 1 Then&#xA; &#x9;For Each str As String In words&#xA;     &#x9;list_string.Add(str.Substring(0, 1).ToUpper() + str.Substring(1))&#xA;&#x9;&#x9;'Console.WriteLine(str)&#xA;&#x9; Next&#xA;&#x9; TextBox2 = String.Join(&quot; &quot;, list_string)&#xA; Else If Len(TextBox1) = 1 Then&#xA;     TextBox2 = TextBox1.ToUpper()&#xA; End If&#xA; &#xA; 'Check the currency&#xA; If unit_price_full.Substring(0,1).Equals(&quot;$&quot;) Then&#xA; &#x9;&#x9;TextBox2 = TextBox2 + &quot; &quot; + &quot;U.S. Dollar&quot;&#xA;End If" DisplayName="Invoke Code Money Text Modification" sap:VirtualizedContainerService.HintSize="358,174" sap2010:WorkflowViewState.IdRef="InvokeCode_5">
+                  <ui:InvokeCode.Arguments>
+                    <InOutArgument x:TypeArguments="x:String" x:Key="TextBox1">[ringgit_text]</InOutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="unit_price_full">[unit_price_full]</InArgument>
+                    <OutArgument x:TypeArguments="x:String" x:Key="TextBox2">[amount_in_words]</OutArgument>
+                  </ui:InvokeCode.Arguments>
+                </ui:InvokeCode>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AssignValueExcel.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="358,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="AssignValueExcel.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_end_user_name">[end_user_name]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_quote_num">[quote_num]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_dateCurrent">[dateCurrent]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_product_desc">[product_desc]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_unit_price">[unit_price_full]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_current_price">[current_price.ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_total_amt">[total_amt]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_quantity">[quantity]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_currency">[currency]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_amount_in_words">[amount_in_words]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_output_file">[in_output_file]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_pdf_output">[in_pdf_output]</InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+              </Sequence>
+            </ui:IfElseIfBlock.Then>
+          </ui:IfElseIfBlock>
+          <ui:IfElseIfBlock BlockType="ElseIf" Condition="[ringgit = 0 and coin &gt; 0]">
+            <ui:IfElseIfBlock.Then>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,588" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="NumberToWords for Coin" sap:VirtualizedContainerService.HintSize="358,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="NumberToWords.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:Int32" x:Key="Nr">[coin]</InArgument>
+                    <InOutArgument x:TypeArguments="x:String" x:Key="Word">[coin_text]</InOutArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+                <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim list_string As New List(Of String)&#xA;TextBox1 = Trim(TextBox1)&#xA;Dim words As String() = TextBox1.Split(&quot; &quot;c)&#xA;If Len(TextBox1) &gt; 1 Then&#xA; &#x9;For Each str As String In words&#xA;     &#x9;list_string.Add(str.Substring(0, 1).ToUpper() + str.Substring(1))&#xA;&#x9;&#x9;'Console.WriteLine(str)&#xA;&#x9; Next&#xA;&#x9; TextBox2 = String.Join(&quot; &quot;, list_string)&#xA; Else If Len(TextBox1) = 1 Then&#xA;     TextBox2 = TextBox1.ToUpper()&#xA; End If&#xA; &#xA; 'Check the currency&#xA; If unit_price_full.Substring(0,1).Equals(&quot;$&quot;) Then&#xA; &#x9;&#x9;TextBox2 = TextBox1 + &quot; &quot; + &quot;Cent&quot;&#xA;End If" DisplayName="Invoke Code Money Text Modification" sap:VirtualizedContainerService.HintSize="358,174" sap2010:WorkflowViewState.IdRef="InvokeCode_6">
+                  <ui:InvokeCode.Arguments>
+                    <InOutArgument x:TypeArguments="x:String" x:Key="TextBox1">[coin_text]</InOutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="unit_price_full">[unit_price_full]</InArgument>
+                    <OutArgument x:TypeArguments="x:String" x:Key="TextBox2">[amount_in_words]</OutArgument>
+                  </ui:InvokeCode.Arguments>
+                </ui:InvokeCode>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AssignValueExcel.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="358,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="AssignValueExcel.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_end_user_name">[end_user_name]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_quote_num">[quote_num]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_dateCurrent">[dateCurrent]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_product_desc">[product_desc]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_unit_price">[unit_price_full]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_current_price">[current_price.ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_total_amt">[total_amt]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_quantity">[quantity]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_currency">[currency]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_amount_in_words">[amount_in_words]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_output_file">[in_output_file]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_pdf_output">[in_pdf_output]</InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+              </Sequence>
+            </ui:IfElseIfBlock.Then>
+          </ui:IfElseIfBlock>
+        </sc:BindingList>
+      </ui:IfElseIf.ConditionBlocks>
+    </ui:IfElseIf>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="451,61" sap2010:WorkflowViewState.IdRef="CommentOut_9">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="628,3060" sap2010:WorkflowViewState.IdRef="Sequence_17">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="358,61" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
+            <ueab:ExcelProcessScopeX.Body>
+              <ActivityAction x:TypeArguments="ui:IExcelProcess">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="552,2914" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="510,2824" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" WorkbookPath="C:\Users\Admin\Downloads\PO Format.xlsx">
+                    <ueab:ExcelApplicationCard.Body>
+                      <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,2546" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ueab:WriteCellX Cell="[Excel.Sheet(&quot;Sheet1&quot;).Cell(&quot;G9&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="WriteCellX_1" Value="[end_user_name]" />
+                          <ueab:WriteCellX Cell="[Excel.Sheet(&quot;Sheet1&quot;).Cell(&quot;C3&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="WriteCellX_2" Value="[quote_num]" />
+                          <ueab:WriteCellX Cell="[Excel.Sheet(&quot;Sheet1&quot;).Cell(&quot;G3&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="WriteCellX_3" Value="[dateCurrent]" />
+                          <ueab:WriteCellX Cell="[Excel.Sheet(&quot;Sheet1&quot;).Cell(&quot;C12&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="WriteCellX_4" Value="[product_desc]" />
+                          <ueab:WriteCellX Cell="[Excel.Sheet(&quot;Sheet1&quot;).Cell(&quot;E12&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="WriteCellX_5" Value="[unit_price]" />
+                          <ueab:WriteCellX Cell="[Excel.Sheet(&quot;Sheet1&quot;).Cell(&quot;F12&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="WriteCellX_6" Value="[current_price.ToString]" />
+                          <ueab:WriteCellX Cell="[Excel.Sheet(&quot;Sheet1&quot;).Cell(&quot;G14&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="WriteCellX_7" Value="[total_amt.ToString]" />
+                          <ueab:WriteCellX Cell="[Excel.Sheet(&quot;Sheet1&quot;).Cell(&quot;G12&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="WriteCellX_9" Value="[total_amt.ToString]" />
+                          <ueab:WriteCellX Cell="[Excel.Sheet(&quot;Sheet1&quot;).Cell(&quot;G16&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="WriteCellX_13" Value="[total_amt.ToString]" />
+                          <ueab:WriteCellX Cell="[Excel.Sheet(&quot;Sheet1&quot;).Cell(&quot;D12&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="WriteCellX_8" Value="[quantity]" />
+                          <ueab:WriteCellX Cell="[Excel.Sheet(&quot;Sheet1&quot;).Cell(&quot;C9&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="WriteCellX_10" Value="[currency.ToString]" />
+                          <ueab:WriteCellX Cell="[Excel.Sheet(&quot;Sheet1&quot;).Cell(&quot;C18&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="WriteCellX_14" Value="[amount_in_words]" />
+                        </Sequence>
+                      </ActivityAction>
+                    </ueab:ExcelApplicationCard.Body>
+                  </ueab:ExcelApplicationCard>
+                </Sequence>
+              </ActivityAction>
+            </ueab:ExcelProcessScopeX.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ueab:ExcelProcessScopeX>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:CommentOut DisplayName="Comment Out Write Range" sap:VirtualizedContainerService.HintSize="451,61" sap2010:WorkflowViewState.IdRef="CommentOut_8">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,1865" sap2010:WorkflowViewState.IdRef="Sequence_16">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:WriteCell Cell="G9" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="358,125" sap2010:WorkflowViewState.IdRef="WriteCell_11" SheetName="Sheet1" Text="[end_user_name]" WorkbookPath="C:\Users\Admin\Downloads\PO Format.xlsx" />
+          <ui:WriteCell Cell="C3" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="358,125" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="Sheet1" Text="[quote_num]" WorkbookPath="C:\Users\Admin\Downloads\PO Format.xlsx" />
+          <ui:WriteCell Cell="G3" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="358,125" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="Sheet1" Text="[dateCurrent]" WorkbookPath="C:\Users\Admin\Downloads\PO Format.xlsx" />
+          <ui:WriteCell Cell="C12" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="358,125" sap2010:WorkflowViewState.IdRef="WriteCell_3" SheetName="Sheet1" Text="[product_desc]" WorkbookPath="C:\Users\Admin\Downloads\PO Format.xlsx" />
+          <ui:WriteCell Cell="E12" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="358,125" sap2010:WorkflowViewState.IdRef="WriteCell_4" SheetName="Sheet1" Text="[unit_price]" WorkbookPath="C:\Users\Admin\Downloads\PO Format.xlsx" />
+          <ui:WriteCell Cell="F12" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="358,125" sap2010:WorkflowViewState.IdRef="WriteCell_5" SheetName="Sheet1" Text="[current_price.ToString]" WorkbookPath="C:\Users\Admin\Downloads\PO Format.xlsx" />
+          <ui:WriteCell Cell="G12" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="358,125" sap2010:WorkflowViewState.IdRef="WriteCell_6" SheetName="Sheet1" Text="[total_amt.ToString]" WorkbookPath="C:\Users\Admin\Downloads\PO Format.xlsx" />
+          <ui:WriteCell Cell="G14" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="358,125" sap2010:WorkflowViewState.IdRef="WriteCell_7" SheetName="Sheet1" Text="[total_amt.ToString]" WorkbookPath="C:\Users\Admin\Downloads\PO Format.xlsx" />
+          <ui:WriteCell Cell="G16" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="358,125" sap2010:WorkflowViewState.IdRef="WriteCell_8" SheetName="Sheet1" Text="[total_amt.ToString]" WorkbookPath="C:\Users\Admin\Downloads\PO Format.xlsx" />
+          <ui:WriteCell Cell="C9" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="358,125" sap2010:WorkflowViewState.IdRef="WriteCell_9" SheetName="Sheet1" Text="[currency.ToString]" WorkbookPath="C:\Users\Admin\Downloads\PO Format.xlsx" />
+          <ui:WriteCell Cell="D12" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="358,125" sap2010:WorkflowViewState.IdRef="WriteCell_10" SheetName="Sheet1" Text="[quantity]" WorkbookPath="C:\Users\Admin\Downloads\PO Format.xlsx" />
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+  </Sequence>
+</Activity>

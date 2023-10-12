@@ -1,0 +1,11 @@
+Sub SaveActiveSheetsAsPDF()
+
+'Create and assign variables
+Dim saveLocation As String
+saveLocation = "C:\Users\Admin\Documents\UiPath\Use Case V - Quote Extraction\ReFramework_QuoteExtraction_Method1\PO Folder\Output\PO_Invoice.pdf"
+
+'Save Active Sheet(s) as PDF
+ActiveSheet.ExportAsFixedFormat Type:=xlTypePDF, _
+    Filename:=saveLocation
+
+End Sub

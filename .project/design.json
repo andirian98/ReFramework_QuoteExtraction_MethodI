@@ -1,0 +1,9 @@
+{
+  "Tags": [
+    {
+      "Key": "#QuoteExtraction"
+    }
+  ],
+  "SeparateRuntimeDependencies": true,
+  "IncludeSources": true
+}

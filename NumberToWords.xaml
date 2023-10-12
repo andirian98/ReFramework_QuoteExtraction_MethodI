@@ -1,0 +1,533 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="NumberToWords" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Nr" Type="InArgument(x:Int32)" />
+    <x:Property Name="Word" Type="InOutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1240,5355</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>NumberToWords_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Number To Words" sap:VirtualizedContainerService.HintSize="953,5290" sap2010:WorkflowViewState.IdRef="Sequence_7">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="s:String[]" Default="[{ &quot;zero&quot;, &quot;one&quot;, &quot;two&quot;, &quot;three&quot;, &quot;four&quot;, &quot;five&quot;, &quot;six&quot;, &quot;seven&quot;, &quot;eight&quot;, &quot;nine&quot;, &quot;ten&quot;, &quot;eleven&quot;, &quot;twelve&quot;, &quot;thirteen&quot;, &quot;fourteen&quot;, &quot;fifteen&quot;, &quot;sixteen&quot;, &quot;seventeen&quot;, &quot;eighteen&quot;, &quot;nineteen&quot; }]" Name="unitsMap" />
+      <Variable x:TypeArguments="s:String[]" Default="[{ &quot;twenty&quot;, &quot;thirty&quot;, &quot;forty&quot;, &quot;fifty&quot;, &quot;sixty&quot;, &quot;seventy&quot;, &quot;eighty&quot;, &quot;ninety&quot; }]" Name="tensMap" />
+      <Variable x:TypeArguments="x:String" Name="Words">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:Int32" Name="NumAux" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <If sap2010:Annotation.AnnotationText="First I check if the number is negative.If this is true then put the word &quot;minus&quot; in the string and then treat the number as a positiv one using Abs function." Condition="[Nr&lt;0]" DisplayName="If number is negativ" sap:VirtualizedContainerService.HintSize="911,467" sap2010:WorkflowViewState.IdRef="If_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="400,270" sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Assign &quot;minus&quot;" sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[Word]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String" xml:space="preserve">minus </InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="Assign Abs to the Nr" sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_4">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Int32">[Nr]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Int32">[Math.Abs(Nr)]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+    </If>
+    <If sap2010:Annotation.AnnotationText="If the number it's zero then we return the word &quot;zero&quot; and do not make any modification regarding the number." Condition="[Nr =0]" DisplayName="If Nr  is zero" sap:VirtualizedContainerService.HintSize="911,357" sap2010:WorkflowViewState.IdRef="If_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="400,160" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Assign &quot; zero&quot;" sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[Word]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">Zero</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+    </If>
+    <If sap2010:Annotation.AnnotationText="If the number is greater than one million then we find out the first digits to decide how many million does we have and then apply the function Mod for getting the digits after the million's pozition." Condition="[(Nr/1000000)&gt;=1]" DisplayName="If Nr is greater then one million" sap:VirtualizedContainerService.HintSize="911,467" sap2010:WorkflowViewState.IdRef="If_3">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="400,270" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="How many millions" sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_6">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[Word]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[Word+unitsMap(Cint(math.Truncate(Nr/1000000)))+" Million and "]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="Nr Mod Million" sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_21">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Int32">[Nr]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Int32">[Nr Mod 1000000]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+    </If>
+    <If sap2010:Annotation.AnnotationText="Here is the case when the number is between 100.000 and 1.000.000 .&#xA;" Condition="[(Nr/100000)&gt;=1]" DisplayName="Nr between 100 000 and 1 000 000" sap:VirtualizedContainerService.HintSize="911,788" sap2010:WorkflowViewState.IdRef="If_16">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="400,591" sap2010:WorkflowViewState.IdRef="Sequence_20">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="First digit assign" sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_31">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[Word]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[Word+unitsMap(Cint(math.Truncate(Nr/100000)))+" Hundred"]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="Assign the digit 2 and 3 as an Integer" sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_32">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Int32">[NumAux]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Int32">[Cint(math.Truncate(nr/1000)) Mod 100]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <If Condition="[NumAux&gt;0 and NumAux&lt;=99]" DisplayName="Compose the name for the digit 2 and 3" sap:VirtualizedContainerService.HintSize="911,1229" sap2010:WorkflowViewState.IdRef="If_20">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="875,1032" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If Condition="[Word.Length&lt;&gt;0]" sap:VirtualizedContainerService.HintSize="833,267" sap2010:WorkflowViewState.IdRef="If_17">
+                  <If.Then>
+                    <Assign sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_33">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[Word]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[Word+"And "]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Then>
+                </If>
+                <If Condition="[NumAux&lt;20]" sap:VirtualizedContainerService.HintSize="833,635" sap2010:WorkflowViewState.IdRef="If_19">
+                  <If.Then>
+                    <Assign sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_34">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[Word]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[Word+unitsMap(NumAux)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence sap:VirtualizedContainerService.HintSize="526,467" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="484,70" sap2010:WorkflowViewState.IdRef="Assign_35">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[Word]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[Word+tensMap(Cint(math.Truncate((NumAux/10)-2)))]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <If Condition="[(NumAux Mod 10)&gt;0]" sap:VirtualizedContainerService.HintSize="484,267" sap2010:WorkflowViewState.IdRef="If_18">
+                        <If.Then>
+                          <Assign sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_36">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[Word]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[Word+"-"+unitsMap(NumAux Mod 10)]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </If.Then>
+                      </If>
+                    </Sequence>
+                  </If.Else>
+                </If>
+              </Sequence>
+            </If.Then>
+          </If>
+          <Assign DisplayName="Put the word &quot;thousand&quot;" sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_37">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[Word]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[Word+" Thousand "]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign sap2010:Annotation.AnnotationText="After I get the last 3 digits of the number the number will be treated 2 cases down." DisplayName="Get the last 3 digits" sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_38">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Int32">[Nr]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Int32">[Nr Mod 1000]</InArgument>
+            </Assign.Value>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Assign>
+        </Sequence>
+      </If.Then>
+    </If>
+    <If Condition="[(Nr/20000)&gt;=1]" DisplayName="Nr between 20 000 and 100 000" sap:VirtualizedContainerService.HintSize="911,678" sap2010:WorkflowViewState.IdRef="If_11">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="400,481" sap2010:WorkflowViewState.IdRef="Sequence_16">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_29">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Int32">[NumAux]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Int32">[Cint(math.Truncate(nr/1000))]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <If Condition="[NumAux&gt;0 and NumAux&lt;=99]" DisplayName="Compose the name for the firs 2 digits" sap:VirtualizedContainerService.HintSize="358,61" sap2010:WorkflowViewState.IdRef="If_15">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="775,952" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If Condition="[Word.Length&lt;&gt;0]" sap:VirtualizedContainerService.HintSize="753,208" sap2010:WorkflowViewState.IdRef="If_12">
+                  <If.Then>
+                    <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_25">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[Word]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[Word+"and "]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Then>
+                </If>
+                <If Condition="[NumAux&lt;20]" sap:VirtualizedContainerService.HintSize="753,580" sap2010:WorkflowViewState.IdRef="If_14">
+                  <If.Then>
+                    <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_26">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[Word]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[Word+unitsMap(NumAux)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence sap:VirtualizedContainerService.HintSize="486,432" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="464,60" sap2010:WorkflowViewState.IdRef="Assign_27">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[Word]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[Word+tensMap(Cint(math.Truncate((NumAux/10)-2)))]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <If Condition="[(NumAux Mod 10)&gt;0]" sap:VirtualizedContainerService.HintSize="464,208" sap2010:WorkflowViewState.IdRef="If_13">
+                        <If.Then>
+                          <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_28">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[Word]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[Word+"-"+unitsMap(NumAux Mod 10)]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </If.Then>
+                      </If>
+                    </Sequence>
+                  </If.Else>
+                </If>
+              </Sequence>
+            </If.Then>
+          </If>
+          <Assign DisplayName="How many thousands" sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_24">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[Word]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[Word+" Thousand "]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="Nr Mod thousand" sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_30">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Int32">[Nr]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Int32">[Nr Mod 1000]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+    </If>
+    <If Condition="[(Nr/1000)&gt;=1]" DisplayName="Nr between 1 000 and 20 000" sap:VirtualizedContainerService.HintSize="911,467" sap2010:WorkflowViewState.IdRef="If_4">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="400,270" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="How many thousands" sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_8">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[Word]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[Word+unitsMap(Cint(math.Truncate(Nr/1000)))+" Thousand "]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="Nr Mod thousand" sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_22">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Int32">[Nr]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Int32">[Nr Mod 1000]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+    </If>
+    <If Condition="[(Nr/100)&gt;=1]" DisplayName="Nr between 100 and 1 000" sap:VirtualizedContainerService.HintSize="911,467" sap2010:WorkflowViewState.IdRef="If_5">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="400,270" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_10">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[Word]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[Word+unitsMap(Cint(math.Truncate(Nr/100)))+" Hundred "]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_23">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Int32">[Nr]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Int32">[Nr Mod 100]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+    </If>
+    <If Condition="[Nr&gt;0 and Nr&lt;=99]" DisplayName="Nr is between 0 and 99" sap:VirtualizedContainerService.HintSize="911,1229" sap2010:WorkflowViewState.IdRef="If_9">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="875,1032" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If Condition="[Word.Length&lt;&gt;0]" DisplayName="If the string is not empty we add the word &quot;and&quot;" sap:VirtualizedContainerService.HintSize="833,267" sap2010:WorkflowViewState.IdRef="If_6">
+            <If.Then>
+              <Assign DisplayName="Assign &quot; and &quot;" sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_11">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[Word]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[Word+" And "]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+          </If>
+          <If Condition="[Nr&lt;20]" DisplayName="Nr between 0 and 20" sap:VirtualizedContainerService.HintSize="833,635" sap2010:WorkflowViewState.IdRef="If_8">
+            <If.Then>
+              <Assign DisplayName="Assign a word from UnitMap" sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_12">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[Word]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[Word+unitsMap(Nr)]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence sap:VirtualizedContainerService.HintSize="526,467" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign DisplayName="Assign a word from tensMap" sap:VirtualizedContainerService.HintSize="484,70" sap2010:WorkflowViewState.IdRef="Assign_13">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[Word]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[Word+tensMap(Cint(math.Truncate((Nr/10)-2)))]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <If Condition="[(Nr Mod 10)&gt;0]" DisplayName="Compose the word from the tens map with one from unitMap" sap:VirtualizedContainerService.HintSize="484,267" sap2010:WorkflowViewState.IdRef="If_7">
+                  <If.Then>
+                    <Assign sap:VirtualizedContainerService.HintSize="262,70" sap2010:WorkflowViewState.IdRef="Assign_14">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[Word]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[Word+"-"+unitsMap(Nr Mod 10)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Then>
+                </If>
+              </Sequence>
+            </If.Else>
+          </If>
+        </Sequence>
+      </If.Then>
+    </If>
+  </Sequence>
+</Activity>
